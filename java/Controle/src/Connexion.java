@@ -55,8 +55,7 @@ public class Connexion {
     
     public void getResultat(ResultSet resultSet) throws SQLException {
         while (resultSet.next()) {
-            System.out.println("Code Emission: " + resultSet.getInt(1)
-                        );
+            System.out.println("Code Emission: " + resultSet.getInt(1));
         }
     }
 }

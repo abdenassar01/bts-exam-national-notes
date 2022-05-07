@@ -84,8 +84,7 @@ if (mysqli_num_rows($resultat) > 0) {
 
 - Récupérer le code client de la page «index.php».
 - Vérifier l’existence d’un client ayant le code récupéré précédemment.
-- Mémoriser, si le code existe, dans une session les champs : code client, nom, prénom et civilité,
-  puis inclure le fichier « affiche.php » déjà existant.
+- Mémoriser, si le code existe, dans une session les champs : code client, nom, prénom et civilité, puis inclure le fichier « affiche.php » déjà existant.
 - Rediriger, dans le cas contraire, vers la page «index.php».
 
 ```
@@ -107,4 +106,5 @@ if (mysqli_num_rows($resultat) !== 0) {
 }else{
     header('Location: index.php');
 }
+
 ```

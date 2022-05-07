@@ -77,7 +77,7 @@ public class Feliere {
         }
         objectOutputStream.close();
     }
-    
+
     public void loadData(String nomFile) throws Exception {
         ObjectInputStream objectInputStream =
                 new ObjectInputStream(

@@ -22,6 +22,7 @@ public class Programme {
     }
     
     public boolean delEmission(Emission emission){
+
        return liste.remove(emission);
     }
     

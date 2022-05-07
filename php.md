@@ -27,7 +27,7 @@ et ajouter ```onClick="valide()"``` comme attribut en button
 <input type="submit" id="valider" name="valider" value="valider" onClick="valide()">
 ```
 
-- _remplire un table avec lien hypertext_ 
+- _remplire un table avec lien hypertext_
 ```
     $result = mysqli_query($connection,"select * from formation")
     while($raw = mysqli_fetch_assoc($result)){
@@ -39,7 +39,7 @@ et ajouter ```onClick="valide()"``` comme attribut en button
     }
 ```
 
-- _remplire un table html utilisant code envoiyer par un lien hypertext_ 
+- _remplire un table html utilisant code envoiyer par un lien hypertext_
 
 ```
     $resultat = mysqli_query($connection, "Select * from client c inner join formation f on f.codef = c.codef where c.codef =".$_GET['codeF']);
@@ -58,6 +58,39 @@ et ajouter ```onClick="valide()"``` comme attribut en button
 ```
 $conn = mysqli_connect("localhost", "root", "27701", "exam2020");
 
+$code = $_POST['code'];
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$civilite = $_POST['civilite'];
+$adress = $_POST['adresse'];
+$ville = $_POST['ville'];
+$mail = $_POST['email'];
+$tel = $_POST['tel'];
+
+if (!$conn){
+    echo 'erreur de connection';
+}
+
+$resultat = mysqli_query($conn, "select * from client where code = " .$code);
+
+if (mysqli_num_rows($resultat) > 0) {
+    echo "<h1>code deja ajouter</h1>";
+}else{
+    if (mysqli_query( $conn ,"insert into client values($code, '$nom', '$prenom', '$civilite', '$adress', '$ville', '$tel');")){
+        echo "<h1>Client Ajouter</h1>";
+    }
+}
+```
+
+- Récupérer le code client de la page «index.php».
+- Vérifier l’existence d’un client ayant le code récupéré précédemment.
+- Mémoriser, si le code existe, dans une session les champs : code client, nom, prénom et civilité,
+  puis inclure le fichier « affiche.php » déjà existant.
+- Rediriger, dans le cas contraire, vers la page «index.php».
+
+```
+
+$conn = mysqli_connect("localhost", "root", "27701", "exam2020");
 $code = $_POST['code'];
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
